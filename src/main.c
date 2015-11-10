@@ -14,11 +14,10 @@
 int main()
 {
     
-    initGrille();
+    //initGrille();
     
     
-    /*grille[0][0].lettre = 'c';
-    grille[0][0].bonus
+    grille[0][0].lettre = 'c';
     grille[0][1].lettre = 'n';
     grille[0][2].lettre = 'e';
     grille[0][3].lettre = 'a';
@@ -36,7 +35,7 @@ int main()
     grille[3][0].lettre = 'd';
     grille[3][1].lettre = 'm';
     grille[3][2].lettre = 'g';
-    grille[3][3].lettre = 'a';*/
+    grille[3][3].lettre = 'a';
     
     /*
     cnea

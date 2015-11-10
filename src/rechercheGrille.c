@@ -1,5 +1,3 @@
-
-
 #include "../includes/general.h"
 
 
@@ -13,14 +11,14 @@ int find_letter(char c/*, coord * coordonnee*/)
     {
         for(j=-1; j<=1 && !trouve; j++)
         {
-            if(coordonnee.x + i >=0 && coordonnee.x + i <N && coordonnee.y + j >=0 && coordonnee.y + j <N )
+            if(coordonnee.x+i>=0 && coordonnee.x+i<N && coordonnee.y+j>=0 && coordonnee.y+j<N )
             {
-                if(c == grille[coordonnee.x + i][coordonnee.y + j].lettre && grille[coordonnee.x + i][coordonnee.y + j].visited == 0)
+                if(c == grille[coordonnee.x+i][coordonnee.y+j].lettre && grille[coordonnee.x+i][coordonnee.y+j].visited == 0)
                 {
                     trouve = true;
-                    coordonnee.x += i;
-                    coordonnee.y += j;
-                    grille[i][j].visited=1;
+                    coordonnee.x=coordonnee.x+i;
+                    coordonnee.y=coordonnee.y+j;
+                    grille[coordonnee.x][coordonnee.y].visited=1;
                     return 1;
                 }
             }
@@ -55,7 +53,7 @@ int chercheMotGrille(char mot[])
     
     for(i=1; i<strlen(mot) && possible; i++)
     {
-        if(!find_letter(mot[i]/*,&coordonnee*/))
+        if(!find_letter(mot[i]))
         {
             possible = false;
         }
@@ -97,7 +95,7 @@ void chercheMot()
     
     FILE * dictionnaire;
     
-    dictionnaire=fopen("dico_opti.txt", "r");
+    dictionnaire=fopen("asset/dico_opti.txt", "r");
     
     if(dictionnaire!=NULL)
     {
@@ -106,12 +104,12 @@ void chercheMot()
             if(lettre=='\n')
             {
                 mot.mot[k]='\0';
-            
+                
                 if(chercheMotGrille(mot.mot))
                 {
                     //printf("OK");
                 }
-            
+                
                 k=0;
             }
             else
@@ -126,6 +124,4 @@ void chercheMot()
     {
         printf("Erreur dans l'ouverture du dictionnaire");
     }
-    
-    
 }
