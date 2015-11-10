@@ -1,3 +1,18 @@
+/**
+ \file matrice.c
+ \brief  Solver de Ruzzle
+ \author Tony Marteau
+ \version 1.0.0
+ \date 09 novembre 2015
+ 
+ \fn void afficherGrille();
+ \brief Fonction qui affiche la grille de jeu
+ 
+ \fn void initGrille();
+ \brief Fonction d'initialisation de la grille de jeu par le joueur
+ */
+
+
 #include "../includes/general.h"
 
 void afficherGrille()

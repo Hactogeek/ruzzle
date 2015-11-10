@@ -9,8 +9,6 @@
  \brief Programme principal
  */
 
-
-
 #include "../includes/general.h"
 
 int main()
