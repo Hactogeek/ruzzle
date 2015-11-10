@@ -1,7 +1,23 @@
+/**
+ \file main.c
+ \brief  Solver de Ruzzle
+ \author Tony Marteau, Dimitri Bernot, Marvin Jean
+ \version 1.0.0
+ \date 09 novembre 2015
+ 
+ \fn int rechercheLettre(char c);
+ \brief Fonction qui recherche compare les lettres adjacentes
+ 
+ \fn int chercheMotGrille(char mot[])
+ \brief Fonction qui cherche le mot dans la grille
+ 
+ \fn void chercheMot()
+ \brief Fonction qui sort un mot du dictionnaire et le appel la fonction chercherMotGrille() pour trouver le mot dans la grille
+ */
+
 #include "../includes/general.h"
 
-
-int find_letter(char c/*, coord * coordonnee*/)
+int rechercheLettre(char c)
 {
     int i, j;
     
@@ -34,8 +50,6 @@ int chercheMotGrille(char mot[])
     bool possible = false;
     bool trouve = false;
     
-    //coord coordonnee;
-    
     for(i=0; i<N && !trouve; i++)
     {
         for(j=0; j<N && !trouve; j++)
@@ -53,7 +67,7 @@ int chercheMotGrille(char mot[])
     
     for(i=1; i<strlen(mot) && possible; i++)
     {
-        if(!find_letter(mot[i]))
+        if(!rechercheLettre(mot[i]))
         {
             possible = false;
         }
