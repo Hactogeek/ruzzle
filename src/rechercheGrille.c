@@ -23,18 +23,26 @@ int rechercheLettre(char c)
     
     bool trouve = false;
     
+    /* Ont parcours les lettres adjacents a la lettre précédente */
+    
     for(i=-1;i<=1 && !trouve; i++)
     {
         for(j=-1; j<=1 && !trouve; j++)
         {
+            
+            /* Vérification si les coordonees sont bien dans la grille de jeu */
+            
             if(coordonnee.x+i>=0 && coordonnee.x+i<N && coordonnee.y+j>=0 && coordonnee.y+j<N )
             {
-                if(c == grille[coordonnee.x+i][coordonnee.y+j].lettre && grille[coordonnee.x+i][coordonnee.y+j].visited == 0)
+                
+                /* Vérification si la lettre correspond et si ont n'est pas passe sur la case */
+                
+                if(c == grille[coordonnee.x+i][coordonnee.y+j].lettre && grille[coordonnee.x+i][coordonnee.y+j].passage == 0)
                 {
                     trouve = true;
                     coordonnee.x=coordonnee.x+i;
                     coordonnee.y=coordonnee.y+j;
-                    grille[coordonnee.x][coordonnee.y].visited=1;
+                    grille[coordonnee.x][coordonnee.y].passage=1;
                     return 1;
                 }
             }
@@ -47,8 +55,10 @@ int chercheMotGrille(char mot[])
 {
     int i, j;
     
-    bool possible = false;
+    bool present = false;
     bool trouve = false;
+    
+    /* Cherche la premiere lettre du mot dans la grille */
     
     for(i=0; i<N && !trouve; i++)
     {
@@ -59,30 +69,39 @@ int chercheMotGrille(char mot[])
                 coordonnee.x=i;
                 coordonnee.y=j;
                 trouve=true;
-                possible=true;
-                grille[coordonnee.x][coordonnee.y].visited=1;
+                present=true;
+                grille[coordonnee.x][coordonnee.y].passage=1;
             }
         }
     }
     
-    for(i=1; i<strlen(mot) && possible; i++)
+    /* Si la premiere lettre a été trouvé dans la grille ont cherche a savoir si les autres lettres sont présentes autour de la première lettre */
+    
+    for(i=1; i<strlen(mot) && present; i++)
     {
         if(!rechercheLettre(mot[i]))
         {
-            possible = false;
+            /* La n-ième lettre n'a pas été trouvé, donc le mot n'est pas présent */
+            
+            present = false;
         }
     }
+    
+    /* Une fois terminé ont remet a 0 nos passage */
     
     for(i=0; i<N; i++)
     {
         for (j=0; j<N; j++)
         {
-            grille[i][j].visited=0;
+            grille[i][j].passage=0;
         }
     }
     
-    if(possible)
+    if(present)
     {
+        
+        /* Si le mot a ete trouve dans la grille */
+        
         printf("%s\n", mot);
         return 1;
     }
@@ -97,15 +116,19 @@ void chercheMot()
     
     char lettre;
     
+    /* Initialise les cases de passage à 0 */
+    
     for(i=0; i<N; i++)
     {
         for (j=0; j<N; j++)
         {
-            grille[i][j].visited=0;
+            grille[i][j].passage=0;
         }
     }
     
     t_valeurMot mot;
+    
+    /* Ouvre le dictionnaire optimise */
     
     FILE * dictionnaire;
     
@@ -114,6 +137,9 @@ void chercheMot()
     if(dictionnaire!=NULL)
     {
         do{
+            
+            /* Sort le mot du dictionnaire par caractère */
+            
             lettre=fgetc(dictionnaire);
             if(lettre=='\n')
             {
@@ -121,6 +147,8 @@ void chercheMot()
                 
                 if(chercheMotGrille(mot.mot))
                 {
+                    /* Va chercher si le mot sortit du dictionnaire est dans la grille */
+                    
                     //printf("OK");
                 }
                 
@@ -132,6 +160,7 @@ void chercheMot()
                 k++;
             }
         }while (!feof(dictionnaire));
+        
         fclose(dictionnaire);
     }
     else

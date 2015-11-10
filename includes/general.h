@@ -8,6 +8,6 @@
 #include "rechercheGrille.h"
 #include "matrice.h"
 
-typedef struct {char lettre; int point; char bonus[2];int visited;} t_donnee;
+typedef struct {char lettre; int point; char bonus[2]; int passage;} t_donnee;
 
 t_donnee grille[N][N];

@@ -1,7 +1,7 @@
 /**
  \file main.c
  \brief  Solver de Ruzzle
- \author Tony Marteau
+ \author Tony Marteau, Dimitri Bernot, Marvin Jean
  \version 1.0.0
  \date 09 novembre 2015
 
