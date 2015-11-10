@@ -5,7 +5,6 @@
 
 #define N 4
 
-#include "rechercheDico.h"
 #include "rechercheGrille.h"
 #include "matrice.h"
 
