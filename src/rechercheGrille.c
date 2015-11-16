@@ -1,5 +1,5 @@
 /**
- \file main.c
+ \file rechercheGrille.c
  \brief  Solver de Ruzzle
  \author Tony Marteau, Dimitri Bernot, Marvin Jean
  \version 1.0.0
