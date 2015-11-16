@@ -45,8 +45,8 @@ int main()
     grille[2][2].lettre = 'i';
     grille[2][2].point = 2;
     grille[2][3].lettre = 'r';
-    grille[2][3].point = 1;
     strcpy(grille[2][3].bonus, "dw");
+    grille[2][3].point = 1;
     
     grille[3][0].lettre = 'd';
     grille[3][0].point = 3;
