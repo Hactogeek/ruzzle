@@ -26,7 +26,8 @@ Notre programme écrit en C devait être capable de trouvé tout les mots prése
 
 ## Répartition approximative des tâches
 
-| | Tony | Dimitri | Marvin |
+|   | Tony  | Dimitri | Marvin  |
+----|:-----:|:-------:| ------: |
 |Codage|50|40|10|
 |Makefile|50|50|0|
 |Test||||
