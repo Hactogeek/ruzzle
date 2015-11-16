@@ -21,7 +21,7 @@ int main()
     grille[0][0].point = 2;
     strcpy(grille[0][0].bonus, "tl");
     grille[0][1].lettre = 'n';
-    grille[0][1].point = 1;
+    grille[0][1].point = 2;
     strcpy(grille[0][1].bonus, "dl");
     grille[0][2].lettre = 'e';
     grille[0][2].point = 1;
@@ -60,10 +60,10 @@ int main()
     grille[3][3].point = 1;
     
     /*
-    cnea
-    runs
-    leir
-    dmga
+    c_2_tl n_2_dl e_1_00 a_1_00
+    r_1_00 u_1_dw n_2_00 s_2_00
+    l_3_00 e_1_00 i_2_00 r_1_dw
+    d_3_tw m_2_00 g_4_tl a_1_00
     */
     
     

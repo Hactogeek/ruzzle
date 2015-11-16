@@ -5,6 +5,9 @@
  \version 1.0.0
  \date 09 novembre 2015
  
+ \fn void applicationBonus(t_donnee emplacement, int * pscore, int * pbonus)
+ \brief Fonction ajoutant le score de la lettre trouvée et prenant les bonus en mémoire
+ 
  \fn int rechercheLettre(char c);
  \brief Fonction qui recherche compare les lettres adjacentes
  
@@ -17,7 +20,32 @@
 
 #include "../includes/general.h"
 
-int rechercheLettre(char c, int * pscore)
+void applicationBonus(t_donnee emplacement, int * pscore, int * pbonus)
+{
+	/* Prise en compte des bonus et ajout du score */
+	if(!strcmp(emplacement.bonus, "dl"))
+	{
+		*pscore += 2*emplacement.point;
+	}
+	else if(!strcmp(emplacement.bonus, "tl"))
+	{
+	     	*pscore += 3*emplacement.point;
+	} else
+	{
+	      	*pscore += emplacement.point;
+	}
+		      
+	if(!strcmp(emplacement.bonus, "dw"))
+	{
+	      	*pbonus *= 2;
+	}
+	else if(!strcmp(emplacement.bonus, "tw"))
+	{
+	    	*pbonus *= 3;
+	}
+}
+
+int rechercheLettre(char c, int * pscore, int * pbonus)
 {
     int i, j;
     
@@ -43,7 +71,10 @@ int rechercheLettre(char c, int * pscore)
                     coordonnee.x=coordonnee.x+i;
                     coordonnee.y=coordonnee.y+j;
                     grille[coordonnee.x][coordonnee.y].passage=1;
-                    * pscore += grille[coordonnee.x][coordonnee.y].point;
+                    
+                    /* Puisque la lettre est bonne, on augmente le score et on regarde les bonus */
+                    applicationBonus(grille[coordonnee.x][coordonnee.y], pscore, pbonus);
+                
                     return 1;
                 }
             }
@@ -56,7 +87,9 @@ int chercheMotGrille(char mot[])
 {
     int i, j;
     int score = 0;
-    int * pscore = &score;
+    int * pscore = &score; //Score de la lettre
+    int bonus = 1;
+    int * pbonus = &bonus; //Bonus accordé au mot entier
     
     bool present = false;
     bool trouve = false;
@@ -75,17 +108,7 @@ int chercheMotGrille(char mot[])
                 present=true;
                 grille[coordonnee.x][coordonnee.y].passage=1;
                 
-                /* Prise en compte des bonus et ajout du score */
-                if(!strcmp(grille[i][j].bonus, "dl")
-                {
-                	score += 2*grille[i][j].point;
-                } else if(!strcmp(grille[i][j].bonus, "tl")
-                {
-                	score += 3*grille[i][j].point;
-                } else
-                {
-                	score += grille[i][j].point;
-                }
+                applicationBonus(grille[i][j], pscore, pbonus);
             }
         }
     }
@@ -94,7 +117,7 @@ int chercheMotGrille(char mot[])
     
     for(i=1; i<strlen(mot) && present; i++)
     {
-        if(!rechercheLettre(mot[i], pscore))
+        if(!rechercheLettre(mot[i], pscore, pbonus))
         {
             /* La n-ième lettre n'a pas été trouvé, donc le mot n'est pas présent */
             
@@ -116,19 +139,8 @@ int chercheMotGrille(char mot[])
     {
         /* Si le mot a ete trouve dans la grille */
         
-        /* Prise en compte des bonus de mots */
-        for(i=0; i<strlen(mot); i++)
-        {
-        	if(!strcmp(mot[i].bonus, "dw")
-        	{
-        		score *= 2;
-        	}
-        	
-        	if(!strcmp(mot[i].bonus, "tw")
-        	{
-        		score *= 3;
-        	}
-        } 
+        /* Prise en compte des bonus de lettres */
+        score *= bonus; 
         
         printf("%s : %i\n", mot, score);
         return 1;
