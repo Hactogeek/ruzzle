@@ -32,14 +32,14 @@ void applicationBonus(t_donnee emplacement, int * pscore, int * pbonus)
 	      	*pscore += emplacement.point;
 	}
 		      
-	/*if(!strcmp(emplacement.bonus, "dw"))
+	if(!strcmp(emplacement.bonus, "dw"))
 	{
 	      	*pbonus *= 2;
 	}
 	else if(!strcmp(emplacement.bonus, "tw"))
 	{
 	    	*pbonus *= 3;
-	}*/
+	}
 }
 
 int rechercheLettre(char c, int * pscore, int * pbonus)

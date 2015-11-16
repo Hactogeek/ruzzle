@@ -5,6 +5,9 @@
  \version 1.0.0
  \date 09 novembre 2015
  
+ \fn void applicationBonus(t_donnee emplacement, int * pscore, int * pbonus)
+ \brief Fonction ajoutant le score de la lettre trouvée et prenant les bonus en mémoire
+ 
  \fn int rechercheLettre(char c);
  \brief Fonction qui recherche compare les lettres adjacentes
  
