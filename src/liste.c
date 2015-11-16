@@ -1,7 +1,7 @@
 #include "../includes/general.h"
 
 /* Déclaration de la structure */
-typedef struct element { int valeur ; struct element* pred ; struct element* succ ;} t_element;
+typedef struct element { t_valeurMot mot ; struct element* pred ; struct element* succ ;} t_element;
 
 /* Déclaration des pointeurs de drapeau et d'élement courant */
 t_element * drapeau;
@@ -63,18 +63,18 @@ void suivant(void)
 	}
 }
 
-void valeur_elt(int* v)
+void valeur_elt(t_valeurMot* m)
 /* Renvoie dans e la veleur de l'elt courant */
 {	
 	if(!hors_liste())
-		*v= ec->valeur;
+		*m= ec;
 }
 
-void modif_elt(int v)
+void modif_elt(t_valeurMot m)
 /* Affecte v à l'elt courant */
 {
 	if(!hors_liste()) 
-		ec->valeur = v;
+		ec = m;
 }
 
 void oter_elt(void)
@@ -92,13 +92,13 @@ void oter_elt(void)
 	free(element_courant);
 }
 
-void ajout_droit(int v)
+void ajout_droit(t_valeurMot m)
 /* Ajoute v a droite de l'elt courant */
 {
 	if(liste_vide()||!hors_liste())
 	{
 		t_element * nouvel_element = malloc(sizeof(t_element));
-		nouvel_element->valeur = v;
+		nouvel_element->mot = m;
 		nouvel_element->succ = ec->succ;
 		nouvel_element->pred = ec;
 		ec->succ = nouvel_element;
@@ -108,13 +108,13 @@ void ajout_droit(int v)
 	}
 }
 
-void ajout_gauche(int v)
+void ajout_gauche(t_valeurMot m)
 /* Ajoute v a gauche de l'elt courant */
 {	
 	if(liste_vide() || !hors_liste()) {
 		t_element * nouvel_element = malloc(sizeof(t_element));
 		
-		nouvel_element->valeur = v;
+		nouvel_element->mot = m;
 		nouvel_element->pred = ec->pred;
 		nouvel_element->succ = ec;
 		
@@ -128,7 +128,7 @@ void ajout_gauche(int v)
 
 /* Fonctions de manipulation de la liste */
 
-void afficher(void)
+void afficher_liste(void)
 /* Affiche les valeurs de la liste */
 {
 	int elem;
@@ -142,21 +142,22 @@ void afficher(void)
 		while(!hors_liste())
 		{
 			valeur_elt(&elem);
-			printf("%i ",elem);
+			printf("%s : %i\n", elem.score, elem.mot);
 			suivant();
 		}
 		printf("\n");
 	}
 }
 
-void inserer(void) {
+void inserer(t_valeurMot mot) {
 	/*Insère un élément dans la liste, en préservant l'ordre croissant des valeurs de la liste*/
 	int valeur, valeur_actuelle;
-	printf("\nEntrez l'element que vous voulez inserer : ");
-	scanf("%i", &valeur);
+	
+	valeur = mot.score;
+	
 	
 	if(liste_vide()) {
-		ajout_droit(valeur);
+		ajout_droit(mot);
 	} else {
 		en_tete();
 		valeur_elt(&valeur_actuelle);
@@ -167,9 +168,9 @@ void inserer(void) {
 		
 		if(hors_liste()) {
 			en_queue();
-			ajout_droit(valeur);
+			ajout_droit(mot);
 		} else {
-			ajout_gauche(valeur);
+			ajout_gauche(mot);
 		}
 	}
 }

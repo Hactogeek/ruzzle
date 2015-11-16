@@ -142,7 +142,8 @@ int chercheMotGrille(char mot[])
         /* Prise en compte des bonus de lettres */
         score *= bonus; 
         
-        printf("%s : %i\n", mot, score);
+        //printf("%s : %i\n", mot, score);
+        inserer();
         return 1;
     }
     

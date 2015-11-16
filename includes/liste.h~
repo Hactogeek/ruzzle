@@ -5,11 +5,11 @@ void en_tete(void);
 void en_queue(void);
 void precedent(void);
 void suivant(void);
-void valeur_elt(t_valeurMot);
-void modif_elt(t_valeurMot);
+void valeur_elt(int*);
+void modif_elt(int);
 void oter_elt(void);
-void ajout_droit(t_valeurMot);
-void ajout_gauche(t_valeurMot);
+void ajout_droit(int);
+void ajout_gauche(int);
 
 void afficher_liste(void);
 void inserer(void);

@@ -9,5 +9,6 @@ typedef struct {char lettre; int point; char bonus[2]; int passage;} t_donnee;
 
 #include "rechercheGrille.h"
 #include "matrice.h"
+#include "liste.h"
 
 t_donnee grille[N][N];
