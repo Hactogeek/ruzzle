@@ -9,12 +9,11 @@ Le ruzzle est un jeu où le joueur doit former un maximum de mot possible avec l
 Notre programme écrit en C devait être capable de trouvé tout les mots présent dans la grille à l'aide d'un dictionnaire fournis par l'enseignant en début de projet.
 
 ## Sommaire
-
-	**Projet Ruzzle**
-	1. **[A Faire](#a-faire)**
-	2. **[Répartition approximative des tâches](#répartition-approximative-des-tâches)**
-	3. **[Compilation](#compilation)**
-	4. **[Utilisation](#utilisation)**
+   **Projet Ruzzle**
+   1. **[A Faire](#a-faire)**
+   2. **[Répartition approximative des tâches](#répartition-approximative-des-tâches)**
+   3. **[Compilation](#compilation)**
+   4. **[Utilisation](#utilisation)**
 
 ## A Faire
 
