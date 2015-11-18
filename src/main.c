@@ -13,11 +13,9 @@
 
 int main()
 {
-    
     //initGrille();
     
-    init_liste();
-    
+    //viderListe();
     
     grille[0][0].lettre = 'c';
     grille[0][0].point = 2;
@@ -70,10 +68,10 @@ int main()
     
     
     afficherGrille();
-    
+     
     chercheMot();
     
-    afficher_liste();
+    afficherListe();
  
     return 0;
 }

@@ -1,5 +1,3 @@
-typedef struct{char mot[N*N]; int score;}t_valeurMot;
-
 typedef struct{int x; int y;}coord;
 
 void applicationBonus(t_donnee emplacement, int * pscore, int * pbonus);

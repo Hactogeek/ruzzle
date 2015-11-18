@@ -15,7 +15,7 @@
  \brief Fonction qui cherche le mot dans la grille
  
  \fn void chercheMot()
- \brief Fonction qui sort un mot du dictionnaire et le appel la fonction chercherMotGrille() pour trouver le mot dans la grille
+ \brief Fonction qui sort un mot du dictionnaire et appelle la fonction chercherMotGrille() pour trouver le mot dans la grille
  */
 
 #include "../includes/general.h"
@@ -51,7 +51,7 @@ int rechercheLettre(char c, int * pscore, int * pbonus)
     
     bool trouve = false;
     
-    /* Ont parcours les lettres adjacents a la lettre précédente */
+    /* On parcourt les lettres adjacentes à la lettre précédente */
     
     for(i=-1;i<=1 && !trouve; i++)
     {
@@ -90,6 +90,8 @@ int chercheMotGrille(char mot[])
     int * pscore = &score; //Score de la lettre
     int bonus = 1;
     int * pbonus = &bonus; //Bonus accordé au mot entier
+    t_element* element;
+    element = (t_element*)malloc(sizeof(t_element));
     
     bool present = false;
     bool trouve = false;
@@ -142,11 +144,18 @@ int chercheMotGrille(char mot[])
         /* Prise en compte des bonus de lettres */
         score *= bonus; 
         
-        //printf("%s : %i\n", mot, score);
-        inserer();
+        strcpy(element->chaine, mot);
+        
+        element->points = score;
+        
+        ajoutElement(element);
+        
+        free(element);
         return 1;
     }
     
+    element = NULL;
+    free(element);
     return 0;
 }
 
@@ -167,14 +176,14 @@ void chercheMot()
         }
     }
     
-    t_valeurMot mot;
+    char mot_courant[17];
     
     /* Ouvre le dictionnaire optimise */
     
     FILE * dictionnaire;
     
     dictionnaire=fopen("asset/dico_opti.txt", "r");
-    
+     
     if(dictionnaire!=NULL)
     {
         do{
@@ -184,20 +193,18 @@ void chercheMot()
             lettre=fgetc(dictionnaire);
             if(lettre=='\n')
             {
-                mot.mot[k]='\0';
+                mot_courant[k] = '\0';
                 
-                if(chercheMotGrille(mot.mot))
+                if(chercheMotGrille(mot_courant))
                 {
                     /* Va chercher si le mot sortit du dictionnaire est dans la grille */
-                    
-                    //printf("OK");
                 }
                 
                 k=0;
             }
             else
             {
-                mot.mot[k]=lettre;
+            	mot_courant[k] = lettre;
                 k++;
             }
         }while (!feof(dictionnaire));

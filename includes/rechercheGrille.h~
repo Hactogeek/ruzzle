@@ -8,5 +8,3 @@ int chercheMotGrille(char mot[N*N]);
 void chercheMot();
 
 coord coordonnee;
-
-
