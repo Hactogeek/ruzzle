@@ -1,11 +1,8 @@
-typedef struct{char mot[N*N]; int score;}t_valeurMot;
-
 typedef struct{int x; int y;}coord;
 
-int rechercheLettre(char c);
+void applicationBonus(t_donnee emplacement, int * pscore, int * pbonus);
+int rechercheLettre(char c, int * pscore, int * pbonus);
 int chercheMotGrille(char mot[N*N]);
 void chercheMot();
 
 coord coordonnee;
-
-

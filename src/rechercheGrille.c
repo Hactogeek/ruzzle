@@ -1,9 +1,12 @@
 /**
- \file main.c
+ \file rechercheGrille.c
  \brief  Solver de Ruzzle
  \author Tony Marteau, Dimitri Bernot, Marvin Jean
  \version 1.0.0
  \date 09 novembre 2015
+ 
+ \fn void applicationBonus(t_donnee emplacement, int * pscore, int * pbonus)
+ \brief Fonction ajoutant le score de la lettre trouvée et prenant les bonus en mémoire
  
  \fn int rechercheLettre(char c);
  \brief Fonction qui recherche compare les lettres adjacentes
@@ -12,18 +15,43 @@
  \brief Fonction qui cherche le mot dans la grille
  
  \fn void chercheMot()
- \brief Fonction qui sort un mot du dictionnaire et le appel la fonction chercherMotGrille() pour trouver le mot dans la grille
+ \brief Fonction qui sort un mot du dictionnaire et appelle la fonction chercherMotGrille() pour trouver le mot dans la grille
  */
 
 #include "../includes/general.h"
 
-int rechercheLettre(char c)
+void applicationBonus(t_donnee emplacement, int * pscore, int * pbonus)
+{
+	/* Prise en compte des bonus et ajout du score */
+	if(!strcmp(emplacement.bonus, "dl"))
+	{
+		*pscore += 2*emplacement.point;
+	}
+	else if(!strcmp(emplacement.bonus, "tl"))
+	{
+	     	*pscore += 3*emplacement.point;
+	} else
+	{
+	      	*pscore += emplacement.point;
+	}
+		      
+	if(!strcmp(emplacement.bonus, "dw"))
+	{
+	      	*pbonus *= 2;
+	}
+	else if(!strcmp(emplacement.bonus, "tw"))
+	{
+	    	*pbonus *= 3;
+	}
+}
+
+int rechercheLettre(char c, int * pscore, int * pbonus)
 {
     int i, j;
     
     bool trouve = false;
     
-    /* Ont parcours les lettres adjacents a la lettre précédente */
+    /* On parcourt les lettres adjacentes à la lettre précédente */
     
     for(i=-1;i<=1 && !trouve; i++)
     {
@@ -43,6 +71,10 @@ int rechercheLettre(char c)
                     coordonnee.x=coordonnee.x+i;
                     coordonnee.y=coordonnee.y+j;
                     grille[coordonnee.x][coordonnee.y].passage=1;
+                    
+                    /* Puisque la lettre est bonne, on augmente le score et on regarde les bonus */
+                    applicationBonus(grille[coordonnee.x][coordonnee.y], pscore, pbonus);
+                
                     return 1;
                 }
             }
@@ -54,6 +86,12 @@ int rechercheLettre(char c)
 int chercheMotGrille(char mot[])
 {
     int i, j;
+    int score = 0;
+    int * pscore = &score; //Score de la lettre
+    int bonus = 1;
+    int * pbonus = &bonus; //Bonus accordé au mot entier
+    t_element* element;
+    element = (t_element*)malloc(sizeof(t_element));
     
     bool present = false;
     bool trouve = false;
@@ -71,15 +109,17 @@ int chercheMotGrille(char mot[])
                 trouve=true;
                 present=true;
                 grille[coordonnee.x][coordonnee.y].passage=1;
+                
+                applicationBonus(grille[i][j], pscore, pbonus);
             }
         }
     }
     
-    /* Si la premiere lettre a été trouvé dans la grille ont cherche a savoir si les autres lettres sont présentes autour de la première lettre */
+    /* Si la premiere lettre a été trouvé dans la grille on cherche a savoir si les autres lettres sont présentes autour de la première lettre */
     
     for(i=1; i<strlen(mot) && present; i++)
     {
-        if(!rechercheLettre(mot[i]))
+        if(!rechercheLettre(mot[i], pscore, pbonus))
         {
             /* La n-ième lettre n'a pas été trouvé, donc le mot n'est pas présent */
             
@@ -99,13 +139,23 @@ int chercheMotGrille(char mot[])
     
     if(present)
     {
-        
         /* Si le mot a ete trouve dans la grille */
         
-        printf("%s\n", mot);
+        /* Prise en compte des bonus de lettres */
+        score *= bonus; 
+        
+        strcpy(element->chaine, mot);
+        
+        element->points = score;
+        
+        ajoutElement(element);
+        
+        free(element);
         return 1;
     }
     
+    element = NULL;
+    free(element);
     return 0;
 }
 
@@ -126,14 +176,14 @@ void chercheMot()
         }
     }
     
-    t_valeurMot mot;
+    char mot_courant[17];
     
     /* Ouvre le dictionnaire optimise */
     
     FILE * dictionnaire;
     
     dictionnaire=fopen("asset/dico_opti.txt", "r");
-    
+     
     if(dictionnaire!=NULL)
     {
         do{
@@ -143,20 +193,18 @@ void chercheMot()
             lettre=fgetc(dictionnaire);
             if(lettre=='\n')
             {
-                mot.mot[k]='\0';
+                mot_courant[k] = '\0';
                 
-                if(chercheMotGrille(mot.mot))
+                if(chercheMotGrille(mot_courant))
                 {
                     /* Va chercher si le mot sortit du dictionnaire est dans la grille */
-                    
-                    //printf("OK");
                 }
                 
                 k=0;
             }
             else
             {
-                mot.mot[k]=lettre;
+            	mot_courant[k] = lettre;
                 k++;
             }
         }while (!feof(dictionnaire));

@@ -1,5 +1,4 @@
-Solver de Ruzzle
-===============
+# Solver de Ruzzle
 
 Tony Marteau, Dimitri Bernot, Marvin Jean
 
@@ -9,15 +8,42 @@ Le ruzzle est un jeu où le joueur doit former un maximum de mot possible avec l
 
 Notre programme écrit en C devait être capable de trouvé tout les mots présent dans la grille à l'aide d'un dictionnaire fournis par l'enseignant en début de projet.
 
-Compilation
-===============
+## Sommaire
+   **Projet Ruzzle**
+   1. **[A Faire](#a-faire)**
+   2. **[Répartition approximative des tâches](#répartition-approximative-des-tâches)**
+   3. **[Compilation](#compilation)**
+   4. **[Utilisation](#utilisation)**
+
+## A Faire
+
+ - [] Codage
+ - [x] Makefile 
+ - [] Test 
+ - [x] Documentation
+ - [x] GitHub
+ - [] Compte rendu
+
+## Répartition approximative des tâches
+
+|   | Tony  | Dimitri | Marvin  |
+----|:-----:|:-------:| ------: |
+|Codage|50|40|10|
+|Makefile|50|50|0|
+|Test||||
+|Documentation|50|50|0|
+|Github|60|0|40|
+|Compte rendu| | | |
+
+## Compilation
+
 
 Pour compiler le programme et avoir un executable il suffit juste de taper cette commande dans le terminale quand ont est dans le répertoire principal du programme :
 
 > $ make
 
-Utilisation
-===============
+## Utilisation
+
 
 Pour lancer l'éxécutable du programme et l'utiliser il suffit de taper la commande suivante dans le terminal :
 
