@@ -17,12 +17,12 @@ Notre programme écrit en C devait être capable de trouvé tout les mots prése
 
 ## A Faire
 
- - [] Codage
+ - [ ] Codage
  - [x] Makefile 
- - [] Test 
+ - [ ] Test 
  - [x] Documentation
  - [x] GitHub
- - [] Compte rendu
+ - [ ] Compte rendu
 
 ## Répartition approximative des tâches
 
