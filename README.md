@@ -30,7 +30,7 @@ Notre programme écrit en C devait être capable de trouvé tout les mots prése
 ----|:-----:|:-------:| ------: |
 |Codage|50|40|10|
 |Makefile|50|50|0|
-|Test||||
+|Test/Debogage|100|0|0|
 |Documentation|50|50|0|
 |Github|60|0|40|
 |Compte rendu| | | |
