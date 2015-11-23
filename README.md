@@ -2,11 +2,10 @@
 
 Tony Marteau, Dimitri Bernot, Marvin Jean
 
-<<<<<<< HEAD
 Ce projet nous à été donné dans le cadre du cours Algo & Prog Avancé en L2 Science Pour l'Ingénieur (SPI) à l'Université du Maine (Le Mans).
 =======
 Ce projet nous a été donné dans le cadre du cours Algoritmique & Programmation Avancées en L2 Science Pour l'Ingénieur (SPI) à l'Université du Maine (Le Mans).
->>>>>>> d6fefb82ce3ebaaa54469e63508430567230bcf7
+
 
 Le ruzzle est un jeu où le joueur doit former un maximum de mot avec les 16 lettres présentes sur la grille de 4x4, dans un laps de temps donné (2min). Les mots ont une taille minimale de 2 lettres et sont trouvés en utilisant des lettres adjacentes les unes aux autres, sans réutiliser deux fois la même case de la grille pour le même mot.
 
@@ -49,11 +48,11 @@ Pour compiler le programme et avoir un executable il suffit juste de taper cette
 ## Utilisation
 
 
-<<<<<<< HEAD
 Pour lancer l'éxécutable du programme et l'utiliser il suffit de taper la commande suivante dans le terminal :
+
+> $ make
 =======
 Pour lancer l'écécutable du programme et l'utiliser il suffit de taper la commande suivante dans le terminal :
->>>>>>> d6fefb82ce3ebaaa54469e63508430567230bcf7
 
 > $ bin/prog
 
