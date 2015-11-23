@@ -3,7 +3,7 @@
 Tony Marteau, Dimitri Bernot, Marvin Jean
 
 Ce projet nous à été donné dans le cadre du cours Algo & Prog Avancé en L2 Science Pour l'Ingénieur (SPI) à l'Université du Maine (Le Mans).
-=======
+
 Ce projet nous a été donné dans le cadre du cours Algoritmique & Programmation Avancées en L2 Science Pour l'Ingénieur (SPI) à l'Université du Maine (Le Mans).
 
 
@@ -46,11 +46,12 @@ Pour compiler le programme et avoir un executable il suffit juste de taper cette
 > $ make
 
 ## Utilisation
-
-
+Compilation
+=======
 Pour lancer l'éxécutable du programme et l'utiliser il suffit de taper la commande suivante dans le terminal :
 
 > $ make
+Execution
 =======
 Pour lancer l'écécutable du programme et l'utiliser il suffit de taper la commande suivante dans le terminal :
 
