@@ -45,14 +45,15 @@ Pour compiler le programme et avoir un executable il suffit juste de taper cette
 
 > $ make
 
-## Utilisation
-Compilation
-=======
+# Utilisation
+##Compilation
+
 Pour lancer l'éxécutable du programme et l'utiliser il suffit de taper la commande suivante dans le terminal :
 
 > $ make
-Execution
-=======
+
+##Execution
+
 Pour lancer l'écécutable du programme et l'utiliser il suffit de taper la commande suivante dans le terminal :
 
 > $ bin/prog
