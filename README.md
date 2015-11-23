@@ -38,13 +38,6 @@ Notre programme écrit en C devait être capable de trouver tout les mots prése
 |Github|60|0|40|
 |Compte rendu|100|0|0|
 
-## Compilation
-
-
-Pour compiler le programme et avoir un executable il suffit juste de taper cette commande dans le terminal quand ont est dans le répertoire principal du programme :
-
-> $ make
-
 # Utilisation
 ##Compilation
 
