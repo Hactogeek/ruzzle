@@ -13,11 +13,9 @@
 
 int main()
 {
-    //initGrille();
+    initGrille();
     
-    //viderListe();
-    
-    grille[0][0].lettre = 'c';
+    /*grille[0][0].lettre = 'c';
     grille[0][0].point = 2;
     strcpy(grille[0][0].bonus, "tl");
     grille[0][1].lettre = 'n';
@@ -57,7 +55,7 @@ int main()
     grille[3][2].point = 4;
     strcpy(grille[3][2].bonus, "tl");
     grille[3][3].lettre = 'a';
-    grille[3][3].point = 1;
+    grille[3][3].point = 1;*/
     
     /*
     c_2_tl n_2_dl e_1_00 a_1_00
