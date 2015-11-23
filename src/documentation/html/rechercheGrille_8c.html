@@ -38,6 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -68,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fonctions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -92,17 +93,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:aeb93034751bac92b4d03b4dfb006da2c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeb93034751bac92b4d03b4dfb006da2c"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rechercheGrille_8c.html#aeb93034751bac92b4d03b4dfb006da2c">rechercheLettre</a> (char c)</td></tr>
-<tr class="memdesc:aeb93034751bac92b4d03b4dfb006da2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui recherche compare les lettres adjacentes. <br/></td></tr>
-<tr class="separator:aeb93034751bac92b4d03b4dfb006da2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee88d8499050d18ec70a6363b0b5dc9a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aee88d8499050d18ec70a6363b0b5dc9a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rechercheGrille_8c.html#aee88d8499050d18ec70a6363b0b5dc9a">applicationBonus</a> (t_donnee emplacement, int *pscore, int *pbonus)</td></tr>
+<tr class="memdesc:aee88d8499050d18ec70a6363b0b5dc9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction ajoutant le score de la lettre trouvée et prenant les bonus en mémoire. <br/></td></tr>
+<tr class="separator:aee88d8499050d18ec70a6363b0b5dc9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad46399744088299119631a468764e507"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad46399744088299119631a468764e507"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>rechercheLettre</b> (char c, int *pscore, int *pbonus)</td></tr>
+<tr class="separator:ad46399744088299119631a468764e507"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43040e0f313e3333ddbc46ce1d77bdcd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a43040e0f313e3333ddbc46ce1d77bdcd"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rechercheGrille_8c.html#a43040e0f313e3333ddbc46ce1d77bdcd">chercheMotGrille</a> (char mot[])</td></tr>
 <tr class="memdesc:a43040e0f313e3333ddbc46ce1d77bdcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui cherche le mot dans la grille. <br/></td></tr>
 <tr class="separator:a43040e0f313e3333ddbc46ce1d77bdcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad944837e5d8ff6c6df0e6b32146d4b3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aad944837e5d8ff6c6df0e6b32146d4b3"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rechercheGrille_8c.html#aad944837e5d8ff6c6df0e6b32146d4b3">chercheMot</a> ()</td></tr>
-<tr class="memdesc:aad944837e5d8ff6c6df0e6b32146d4b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui sort un mot du dictionnaire et le appel la fonction chercherMotGrille() pour trouver le mot dans la grille. <br/></td></tr>
+<tr class="memdesc:aad944837e5d8ff6c6df0e6b32146d4b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui sort un mot du dictionnaire et appelle la fonction chercherMotGrille() pour trouver le mot dans la grille. <br/></td></tr>
 <tr class="separator:aad944837e5d8ff6c6df0e6b32146d4b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>

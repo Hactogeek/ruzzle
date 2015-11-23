@@ -6,7 +6,7 @@
  \date 09 novembre 2015
  
  \fn void ajoutElement(element * elem);
- \brief Fonction qui ajoute un élément dans la liste
+ \brief Fonction qui ajoute un element dans la liste
  
  \fn void afficherListe();
  \brief Fonction permettant d'afficher la liste
