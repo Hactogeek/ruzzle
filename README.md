@@ -33,7 +33,7 @@ Notre programme écrit en C devait être capable de trouver tout les mots prése
 |Test/Debogage|90|0|10|
 |Documentation|50|50|0|
 |Github|60|0|40|
-|Compte rendu| | | |
+|Compte rendu|100|0|0|
 
 ## Compilation
 
