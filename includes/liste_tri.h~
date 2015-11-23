@@ -1,5 +1,0 @@
-typedef struct element { char chaine[17] ; int points ; struct element *suivant ; } t_element;
-
-void ajoutElement(t_element * elem);
-void afficherListe();
-void viderListe();

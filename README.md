@@ -2,11 +2,15 @@
 
 Tony Marteau, Dimitri Bernot, Marvin Jean
 
+<<<<<<< HEAD
 Ce projet nous à été donné dans le cadre du cours Algo & Prog Avancé en L2 Science Pour l'Ingénieur (SPI) à l'Université du Maine (Le Mans).
+=======
+Ce projet nous a été donné dans le cadre du cours Algoritmique & Programmation Avancées en L2 Science Pour l'Ingénieur (SPI) à l'Université du Maine (Le Mans).
+>>>>>>> d6fefb82ce3ebaaa54469e63508430567230bcf7
 
-Le ruzzle est un jeu où le joueur doit former un maximum de mot possible avec les 16 lettres de la grille de 4x4 dans un minimum de temps (2min). Les mots ont une taille minimale de 2 lettres et trouvé en utilisant des lettres adjacentes les unes aux autres sans réutiliser deux fois la même case de la grille dans le même mot.
+Le ruzzle est un jeu où le joueur doit former un maximum de mot avec les 16 lettres présentes sur la grille de 4x4, dans un laps de temps donné (2min). Les mots ont une taille minimale de 2 lettres et sont trouvés en utilisant des lettres adjacentes les unes aux autres, sans réutiliser deux fois la même case de la grille pour le même mot.
 
-Notre programme écrit en C devait être capable de trouvé tout les mots présent dans la grille à l'aide d'un dictionnaire fournis par l'enseignant en début de projet.
+Notre programme écrit en C devait être capable de trouver tout les mots présents dans la grille à l'aide d'un dictionnaire fourni par l'enseignant en début de projet.
 
 ## Sommaire
    **Projet Ruzzle**
@@ -17,12 +21,12 @@ Notre programme écrit en C devait être capable de trouvé tout les mots prése
 
 ## A Faire
 
- - [] Codage
+ - [ ] Codage
  - [x] Makefile 
- - [] Test 
+ - [ ] Test 
  - [x] Documentation
  - [x] GitHub
- - [] Compte rendu
+ - [ ] Compte rendu
 
 ## Répartition approximative des tâches
 
@@ -30,7 +34,7 @@ Notre programme écrit en C devait être capable de trouvé tout les mots prése
 ----|:-----:|:-------:| ------: |
 |Codage|50|40|10|
 |Makefile|50|50|0|
-|Test||||
+|Test/Debogage|90|0|10|
 |Documentation|50|50|0|
 |Github|60|0|40|
 |Compte rendu| | | |
@@ -38,14 +42,18 @@ Notre programme écrit en C devait être capable de trouvé tout les mots prése
 ## Compilation
 
 
-Pour compiler le programme et avoir un executable il suffit juste de taper cette commande dans le terminale quand ont est dans le répertoire principal du programme :
+Pour compiler le programme et avoir un executable il suffit juste de taper cette commande dans le terminal quand ont est dans le répertoire principal du programme :
 
 > $ make
 
 ## Utilisation
 
 
+<<<<<<< HEAD
 Pour lancer l'éxécutable du programme et l'utiliser il suffit de taper la commande suivante dans le terminal :
+=======
+Pour lancer l'écécutable du programme et l'utiliser il suffit de taper la commande suivante dans le terminal :
+>>>>>>> d6fefb82ce3ebaaa54469e63508430567230bcf7
 
 > $ bin/prog
 
